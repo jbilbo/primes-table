@@ -1,5 +1,7 @@
 # PrimesTable
 
+## Objective
+
 Write a program that prints out a multiplication table of the first 10 prime numbers.
 The program runs from the command line and print to screen one table. Across the top and down the left side
 should be the 10 primes, and the body of the table should contain the product of multiplying these numbers.
@@ -16,10 +18,10 @@ should be the 10 primes, and the body of the table should contain the product of
 ## Description
 
 This solution takes advantage of the [Methadone](https://github.com/davetron5000/methadone) framework.
-It has basic acceptance tests with [Cucumber](http://cukes.info) and unit tests with [Test::Unit](http://ruby-doc.org/stdlib-2.1.0/libdoc/test/unit/rdoc/Test/Unit.html). The project is ready for create a Gem,
+It has basic acceptance tests with [Cucumber](http://cukes.info) and unit tests with [Test::Unit](http://ruby-doc.org/stdlib-2.1.0/libdoc/test/unit/rdoc/Test/Unit.html). The project is ready to create a Gem,
 for easier use of the binary ($ gem install primes_table && primes_table 10). But for the purpose of this exercise I don't consider it necessary.
 
-The testing primality is done with a slightly optimized version of the Trial Division method, valid only for small numbers.
+A slightly optimized version of the Trial Division method has been used for the testing primality, valid only for small numbers but enough for the exercise.
 
 ## Usage
 
