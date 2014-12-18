@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+require 'methadone'
+require 'primes_table'
+require 'terminal-table'
+
+class App
+  include Methadone::Main
+  include Methadone::CLILogging
+  extend PrimesTable
+
+  main do |num|
+    num = num.to_i
+    exit_now!('the argument should be a number greatear than 0. See --help for more usage detail') if num == 0
+
+    prime_list = first_prime_numbers(num)
+    table = Terminal::Table.new :rows => build_multiplication_table(prime_list)
+    puts table
+  end
+
+  version PrimesTable::VERSION
+
+  description 'Multiplication table for prime numbers'
+
+  arg :num, 'Amount of prime numbers (> 0)'
+
+  use_log_level_option :toggle_debug_on_signal => 'USR1'
+
+  go!
+end
