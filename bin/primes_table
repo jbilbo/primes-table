@@ -14,12 +14,19 @@ class App
     num = num.to_i
     exit_now!('the argument should be a number greatear than 0. See --help for more usage detail') if num == 0
 
-    prime_list = first_prime_numbers(num)
-    table = Terminal::Table.new :rows => build_multiplication_table(prime_list)
-    puts table
+    if options[:nth]
+      puts first_prime_numbers(num).last
+    else
+      prime_list = first_prime_numbers(num)
+      table = Terminal::Table.new :rows => build_multiplication_table(prime_list)
+      puts table
+    end
+
   end
 
   version PrimesTable::VERSION
+
+  on("--nth", "Instead of printing a multiplication table, just prints the nth prime number")
 
   description 'Multiplication table for prime numbers'
 

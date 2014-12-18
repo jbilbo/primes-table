@@ -5,7 +5,7 @@ The program runs from the command line and print to screen one table. Across the
 should be the 10 primes, and the body of the table should contain the product of multiplying these numbers.
 
 - Consider Code complexity.
-- Consider cases where we want more than ‘n’ primes (What if we just wanted to generate the 65,00th prime number?)
+- Consider cases where we want more than ‘n’ primes (What if we just wanted to generate the 65,000th prime number?)
 - Consider KISS and not over-engineering
 - Consider re-usability
 - DO NOT use a library method for Prime (write your own)
@@ -19,13 +19,16 @@ This solution takes advantage of the [Methadone](https://github.com/davetron5000
 It has basic acceptance tests with [Cucumber](http://cukes.info) and unit tests with [Test::Unit](http://ruby-doc.org/stdlib-2.1.0/libdoc/test/unit/rdoc/Test/Unit.html). The project is ready for create a Gem,
 for easier use of the binary ($ gem install primes_table && primes_table 10). But for the purpose of this exercise I don't consider it necessary.
 
-The testing primality is done with a the basic Trial Division method, valid only for small numbers.
+The testing primality is done with a slightly optimized version of the Trial Division method, valid only for small numbers.
 
 ## Usage
 
-Clone this repo, then:
+Clone this repo, then install all the dependencies (better with [rvm](http://rvm.io)):
 
     $ bundle install
+
+Then you can generate the prime multiplication table with:
+
     $ bundle exec bin/primes_table 10
 
 output:
@@ -43,6 +46,14 @@ output:
     | 23 | 46 | 69 | 115 | 161 | 253 | 299 | 391 | 437 | 529 | 667 |
     | 29 | 58 | 87 | 145 | 203 | 319 | 377 | 493 | 551 | 667 | 841 |
     +----+----+----+-----+-----+-----+-----+-----+-----+-----+-----+
+
+Also there's an option for generate the nth prime number. For ex, if we want the 65,000nth prime number:
+
+    $ bundle exec bin/primes_table --nth 65000
+
+output:
+
+    814279
 
 ## Tests
 
